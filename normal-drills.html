@@ -77,17 +77,47 @@
 		return array.map(number => array.reduce((a, b) => a * b) / number)
 	}
 
-		// console.log(products(prod))
+	// console.log(products(prod))
 
-		//2D array
-		// const OMG = [[1, 0, 1, 1, 0],
-		// [0, 1, 1, 1, 0],
-		// [1, 1, 1, 1, 1],
-		// [1, 0, 1, 1, 1],
-		// [1, 1, 1, 1, 1]]
+	//2D array
+	const OMG = [[1, 0, 1, 1, 0],
+	[0, 1, 1, 1, 0],
+	[1, 1, 1, 1, 1],
+	[1, 0, 1, 1, 1],
+	[1, 1, 1, 1, 1]]
 
-		// function twoD(array) {
+	function twoD(array) {
+		let newArray = [...array]
+		for (let i = 0; i < array[0].length; i++) {
+			if (array[0][i] === 0) {
+				console.log('zero')
+				for (let j = 0; j < array.length; j++) {
+					newArray[j][i] = 0;
+					if (array[j].includes(0)) {
+						newArray = array[j].map(x => 0);
+					}
+				}
+			}
+		}
+		return newArray
+	}
 
-		// }
+	console.log(twoD(OMG))
 
+	//string rotation
+	let word = 'amazon'
+	let reverse = 'azonma'
+	let reverse2 = 'azonam'
+
+	function rotation(str1, str2) {
+		for (let i = 0; i < str2.length; i++) {
+			if (word === str2.slice(i) + str2.slice(0, i)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	// console.log(rotation(word, reverse));
+	// console.log(rotation(word, reverse2));
 </script>
